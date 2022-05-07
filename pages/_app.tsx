@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Next-basics | Next</title>
+        <title>감도 높은 취향 셀렉트몰 29CM | Next</title>
       </Head>
       <GlobalStyle/>
       <ThemeProvider theme={theme}>
