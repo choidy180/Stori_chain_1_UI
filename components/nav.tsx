@@ -68,12 +68,17 @@ export default function Nav(){
 }
 
 const NavContainer = styled.div`
-  position: absolute;
-  z-index: 999999;
+  position: fixed;
+  z-index: 99999;
   width: calc(100vw - 76px);
   padding: 34px 38px 10px 38px;
   display: flex;
   flex-direction: column;
+  background-color: white;
+  ${media.tablet}{
+    position: relative;
+    z-index: 99999;
+  }
 `;
 
 const NavBox = styled.div`

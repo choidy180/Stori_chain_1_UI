@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import styled from "styled-components";
 import Image from "next/image";
+import { media } from "../styles/theme";
 
 const Login: NextPage = () => {
   return (
@@ -55,9 +56,6 @@ const Login: NextPage = () => {
 }
 
 const Container = styled.div`
-  position: absolute;
-  z-index: 10;
-  margin-top: -100px;
   width: 100vw;
   min-height: 100vh;
   height: auto;
@@ -65,10 +63,17 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  ${media.mobile}{
+    justify-content: flex-start;
+    min-height: 0;
+  }
 `;
 const Title = styled.h2`
   font-size: 4rem;
   font-family: 'GmarketSansMedium';
+  ${media.mobile}{
+    margin-top: 22px;
+  }
 `;
 const InputContainer = styled.form`
   margin-top: 24px;
@@ -78,6 +83,9 @@ const InputContainer = styled.form`
   flex-direction: column;
   gap: 10px;
   border-top: 4px solid ${props => props.theme.color.darkGray};
+  ${media.mobile}{
+    width: calc(100% - 30px);
+  }
 `;
 const Input = styled.input`
   width: calc(100% - 30px);
@@ -123,6 +131,10 @@ const JoinText = styled.p`
   font-family: 'NEXON Lv2 Gothic';
   margin-top: 72px;
   letter-spacing: -.4px;
+  ${media.mobile}{
+    font-size: 1.7rem;
+    margin-top: 40px;
+  }
 `
 const JoinButton = styled.button`
   margin-top: 12px;
@@ -136,6 +148,9 @@ const JoinButton = styled.button`
   transition: all .2s ease-in-out;
   :hover{
     color: ${props => props.theme.color.pink};
+  }
+  ${media.mobile}{
+    width: calc(100% - 30px);
   }
 `
 
