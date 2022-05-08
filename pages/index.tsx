@@ -165,7 +165,6 @@ const Home: NextPage = () => {
 const Container = styled.div`
   position: absolute;
   z-index: 10;
-  margin-top: 134px;
   width: 100vw;
   height: auto;
   min-height: 100vh;
