@@ -7,6 +7,7 @@ import { media } from "../styles/theme";
 
 export default function Nav(){
   const router = useRouter(); 
+  console.log(media);
   return(
     <NavContainer>
       <NavBox>
@@ -19,19 +20,19 @@ export default function Nav(){
           <Link href={"/mypage"}>
             <NavText>
               <FontAwesomeIcon icon={faUser}/>
-              <span>MY PAGE</span>
+              <span>MYPAGE</span>
             </NavText>
           </Link>
           <Link href={"/mypage/heart"}>
             <NavText>
               <FontAwesomeIcon icon={faHeart}/>
-              <span>MY HEART</span>
+              <span>HEART</span>
             </NavText>
           </Link>
           <Link href={"/order/cart"}>
             <NavText>
               <FontAwesomeIcon icon={faShoppingBag}/>
-              <span>SHOPPING BAG</span>
+              <span>SHOPPING</span>
             </NavText>
           </Link>
           {router.pathname === '/login' 
@@ -98,6 +99,9 @@ const NavBoxRight = styled.div`
     margin-top: 1px;
     margin-left: 3px;
   }
+  ${media.tablet}{
+    gap: 1rem;
+  }
 `;
 const LogoText = styled.p`
   font-size: 24px;
@@ -112,6 +116,11 @@ const NavText = styled.a`
   letter-spacing: -0.5px;
   :hover{
     color: ${props => props.theme.color.green}
+  }
+  ${media.tablet}{
+    svg{
+      display: none;
+    }
   }
 `;
 
