@@ -8,9 +8,6 @@ export const GlobalStyle = createGlobalStyle`
         outline: none;
         border: none;
     }
-    ::-webkit-scrollbar {
-        display: none;
-    }
     @font-face {
         font-family: 'NEXON Lv2 Gothic Light';
         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Light.woff') format('woff');
@@ -58,6 +55,7 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-text-size-adjust: none;
         font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;       
         font-display: fallback;
+        overflow-x: hidden;
         ${media.tablet}{
             font-size: 10px;
         }
@@ -72,11 +70,25 @@ export const GlobalStyle = createGlobalStyle`
         background: none;
         padding: 0;
         border: none;
-        cursor: pointer;
+        cursor: pointer;ge height auto
         &:disabled {
             cursor: default;
             fill: #f2f3f4;
         }
+    }
+    /* 스크롤바 설정*/
+    html::-webkit-scrollbar{
+        width: 4px;
+    }
+    /* 스크롤바 막대 설정*/
+    html::-webkit-scrollbar-thumb{
+        height: 17%;
+        background-color: #343434;
+        border-radius: 2px;  
+    }
+    /* 스크롤바 뒷 배경 설정*/
+    html::-webkit-scrollbar-track{
+        background-color: #D2E8F7;
     }
 
     .pc-tablet-only {

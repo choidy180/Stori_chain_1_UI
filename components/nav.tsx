@@ -23,10 +23,10 @@ export default function Nav(){
             </NavText>
           </Link>
           <Link href={"/mypage/heart"}>
-              <NavText>
-                <FontAwesomeIcon icon={faHeart}/>
-                <span>MY HEART</span>
-              </NavText>
+            <NavText>
+              <FontAwesomeIcon icon={faHeart}/>
+              <span>MY HEART</span>
+            </NavText>
           </Link>
           <Link href={"/order/cart"}>
             <NavText>
@@ -84,6 +84,9 @@ const NavBoxLeft = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  ${media.tablet}{
+    width: auto;
+  }
 `;
 const NavBoxRight = styled.div`
   width: 100%;
