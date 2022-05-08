@@ -236,13 +236,14 @@ const ImageContent = styled.div`
     font-family: 'GmarketSansMedium';
     margin: 0;
     padding: 0;
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   p {
     margin-top: 10px;
     font-family: 'NEXON Lv2 Gothic';
-    font-size: 1.2rem;
-    line-height: 1.4rem;
+    font-size: 1.8rem;
+    line-height: 2rem;
+    letter-spacing: -.4px;
   }
   ${media.tablet}{
     h3{
