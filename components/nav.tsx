@@ -133,6 +133,9 @@ const NavItem = styled.div`
   justify-content: flex-start;
   gap: 20px;
   padding-top: 20px;
+  ${media.tablet}{
+    flex-wrap: wrap;
+  }
 `
 const NavTabItems = styled.span`
   font-family: 'GmarketSansBold';
