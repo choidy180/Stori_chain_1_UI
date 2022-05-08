@@ -150,6 +150,9 @@ const NavItem = styled.div`
 const NavTabItems = styled.span`
   font-family: 'GmarketSansBold';
   font-size: 1rem;
+  ${media.tablet}{
+    font-size: 0.85rem;
+  }
 `
 const NavSubTab = styled.div`
   width: 100%;
