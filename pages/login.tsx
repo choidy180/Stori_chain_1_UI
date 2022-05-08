@@ -13,7 +13,7 @@ const Login: NextPage = () => {
           placeholder="아이디(이메일)"
         />
         <Input
-          type="text"
+          type="password"
           placeholder="비밀번호"
         />
         <InputButton>로그인하기</InputButton>

@@ -229,6 +229,9 @@ const ImageTop = styled.div`
     border-top: 4px solid black;
     margin: 20px 0px;
   }
+  ${media.xltablet}{
+    margin-top:40px;
+  }
 `
 const ImageContent = styled.div`
   padding-top: 20px;
@@ -245,13 +248,18 @@ const ImageContent = styled.div`
     line-height: 2rem;
     letter-spacing: -.4px;
   }
+  ${media.xltablet}{
+    p{
+      font-size: 1.4rem;
+    }
+  }
   ${media.tablet}{
     h3{
       font-size: 2.4rem;
     }
     p{
-      font-size: 1.6rem;
-      line-height: 1.8rem;
+      font-size: 2rem;
+      line-height: 2.3rem;
     }
   }
 `
