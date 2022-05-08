@@ -42,15 +42,15 @@ const Home: NextPage = () => {
         <Image 
           src='/images/main/main-image2.jpg' 
           alt=''
-          width={600}
-          height={1080}
+          width={720}
+          height={1296}
         />
         <ImageTop/>
         <Image 
           src='/images/main/main-image5.jpg' 
           alt=''
-          width={500}
-          height={500}
+          width={800}
+          height={800}
         />
         <ImageContent>
           <h3>내 마음, 당신에게 전할 수 있다면</h3>
@@ -63,8 +63,8 @@ const Home: NextPage = () => {
         <Image 
           src='/images/main/7469841a9beb476bb2924198dca5a181_20220506185856.jpg' 
           alt=''
-          width={500}
-          height={500}
+          width={800}
+          height={800}
         />
         <ImageContent>
           <h3>편안한 내 발을 위해</h3>
@@ -75,8 +75,8 @@ const Home: NextPage = () => {
         <Image 
           src='/images/main/5865d6b2636b4e788970a9911ae5d9d8_20220506170058.png' 
           alt=''
-          width={500}
-          height={500}
+          width={800}
+          height={800}
         />
         <ImageContent>
           <h3>일상 속 액자에 카드를 담다</h3>
@@ -88,8 +88,8 @@ const Home: NextPage = () => {
         <Image 
           src='/images/main/8ff8a265337c4674ac7b9a511f840529_20220412105554.png' 
           alt=''
-          width={500}
-          height={500}
+          width={800}
+          height={800}
         />
         <ImageContent>
           <h3>한 가지 색상의 티셔츠만 보고 싶다면?</h3>
@@ -102,15 +102,15 @@ const Home: NextPage = () => {
         <Image 
           src='/images/main/main-image3.jpg' 
           alt=''
-          width={600}
-          height={1080}
+          width={720}
+          height={1296}
         />
         <ImageTop/>
         <Image 
           src='/images/main/40f97e6076d54bee938692674bdc4b68_20220506170424.jpeg' 
           alt=''
-          width={500}
-          height={500}
+          width={800}
+          height={800}
         />
         <ImageContent>
           <h3>29DAYS with 롱블랙</h3>
@@ -124,8 +124,8 @@ const Home: NextPage = () => {
         <Image 
           src='/images/main/1b19c15cd90a4ea988e8371e3dc57469_20220506170352.jpg' 
           alt=''
-          width={500}
-          height={500}
+          width={800}
+          height={800}
         />
         <ImageContent>
           <h3>그로브의 스포츠클럽으로 초대합니다</h3>
@@ -137,8 +137,8 @@ const Home: NextPage = () => {
         <Image 
           src='/images/main/da6e9f3e96494390826f625b20d4d912_20220504175902.png' 
           alt=''
-          width={500}
-          height={500}
+          width={800}
+          height={800}
         />
         <ImageContent>
           <h3>시원한 단잠을 만나는 방법</h3>
@@ -149,8 +149,8 @@ const Home: NextPage = () => {
         <Image 
           src='/images/main/af2e869e317a4693ae7c308360754ef1_20220506170300.png' 
           alt=''
-          width={500}
-          height={500}
+          width={800}
+          height={800}
         />
         <ImageContent>
           <h3>오랫동안 사랑받는 샌들</h3>
