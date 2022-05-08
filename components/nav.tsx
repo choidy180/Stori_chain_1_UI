@@ -144,6 +144,7 @@ const NavItem = styled.div`
   padding-top: 20px;
   ${media.tablet}{
     flex-wrap: wrap;
+    gap: 12px;
   }
 `
 const NavTabItems = styled.span`
