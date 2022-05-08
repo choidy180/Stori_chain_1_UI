@@ -3,9 +3,6 @@ import styled from "styled-components";
 import Image from "next/image";
 import { media } from "../styles/theme";
 
-const ImageLoader = ({src, width, quality}) => {
-  return `https://${src}`
-}
 const Home: NextPage = () => {
   return (
     <Container>
@@ -166,7 +163,9 @@ const Home: NextPage = () => {
 }
 
 const Container = styled.div`
-  margin-top: 34px;
+  position: absolute;
+  z-index: 10;
+  margin-top: 134px;
   width: 100vw;
   height: auto;
   min-height: 100vh;

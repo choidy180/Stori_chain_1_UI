@@ -68,6 +68,8 @@ export default function Nav(){
 }
 
 const NavContainer = styled.div`
+  position: absolute;
+  z-index: 999999;
   width: calc(100vw - 76px);
   padding: 34px 38px 10px 38px;
   display: flex;
@@ -108,14 +110,14 @@ const LogoText = styled.p`
   cursor: pointer;
 `
 const NavText = styled.a`
-  font-size: 11px;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   cursor: pointer;
   transition: all ease-in-out 0.1s;
   letter-spacing: -0.5px;
   :hover{
-    color: ${props => props.theme.color.green}
+    color: ${props => props.theme.color.pink}
   }
   ${media.tablet}{
     svg{
