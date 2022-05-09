@@ -87,8 +87,8 @@ const NavContainer = styled.div`
   flex-direction: column;
   background-color: white;
   ${media.tablet}{
-    position: relative;
-    z-index: 99999;
+    width: calc(100vw - 50px);
+    padding: 34px 25px 40px 25px;
   }
 `;
 
