@@ -57,8 +57,8 @@ const Content = styled.div`
   min-height: 1000px;
 `;
 const Top = styled.div`
-  width: calc(100% - 48px);
-  padding: 31px 24px;
+  width: calc(100% - 60px);
+  padding: 31px 30px;
   background-color: ${props => props.theme.color.darkGray2};
   color: white;
   display: flex;
@@ -88,6 +88,7 @@ const TopText = styled.p`
   font-family: 'GmarketSansMedium';
   color: white;
   font-size: 3.6rem;
+  line-height: 3.4rem;
 `;
 const TopNumber = styled.span`
   font-family: 'GmarketSansMedium';
