@@ -6,6 +6,7 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { authService } from "../firebase/firebaseConfig";
 import { useRouter } from "next/router";
+import Nav from "../components/nav";
 
 const Login: NextPage = () => {
   const router = useRouter();
@@ -52,69 +53,73 @@ const Login: NextPage = () => {
     }
   }
   return (
-    <Container>
-      <Title>{newAccount ? "회원가입" : "로그인"}</Title>
-      <InputContainer onSubmit={onSubmit}>
-        <Input
-          name="email"
-          type="text"
-          placeholder="아이디(이메일)"
-          required
-          value={email}
-          onChange={onChange}
-        />
-        <Input
-          name="password"
-          type="password"
-          placeholder="비밀번호"
-          required
-          value={password}
-          onChange={onChange}
-        />
-        <InputButton
-          type="submit"
-        >{newAccount ? "회원가입하기" : "로그인하기"}</InputButton>
-      </InputContainer>
-      <SnsText>SNS 계정으로 로그인하기</SnsText>
-      <SnsContainer>
-        <Image 
-          src='/images/logo/google-brand-black-google-logo-vector-number-symbol-text-trademark-transparent-png-144049.png' 
-          alt=''
-          width={40}
-          height={40}
-          style={{cursor:"pointer"}}
-        />
-        <Image 
-          src='/images/logo/free-icon-github-logo-25231.png' 
-          alt=''
-          width={40}
-          height={40}
-          style={{cursor:"pointer"}}
-        />
-        <Image 
-          src='/images/logo/facebook.png' 
-          alt=''
-          width={40}
-          height={40}
-          style={{cursor:"pointer"}}
-        />
-        <Image 
-          src='/images/logo/apple.png' 
-          alt=''
-          width={40}
-          height={40}
-          style={{cursor:"pointer"}}
-        />
-      </SnsContainer>
-      <JoinText onClick={typeChange}>
-        {newAccount ? "이미 29CM 회원이신가요?" : "아직 29CM 회원이 아니신가요?"}
-      </JoinText>
-      {/* <JoinButton>회원가입</JoinButton> */}
-    </Container>
+    <>
+      <Nav/>
+      <Container>
+        <Title>{newAccount ? "회원가입" : "로그인"}</Title>
+        <InputContainer onSubmit={onSubmit}>
+          <Input
+            name="email"
+            type="text"
+            placeholder="아이디(이메일)"
+            required
+            value={email}
+            onChange={onChange}
+          />
+          <Input
+            name="password"
+            type="password"
+            placeholder="비밀번호"
+            required
+            value={password}
+            onChange={onChange}
+          />
+          <InputButton
+            type="submit"
+          >{newAccount ? "회원가입하기" : "로그인하기"}</InputButton>
+        </InputContainer>
+        <SnsText>SNS 계정으로 로그인하기</SnsText>
+        <SnsContainer>
+          <Image 
+            src='/images/logo/google-brand-black-google-logo-vector-number-symbol-text-trademark-transparent-png-144049.png' 
+            alt=''
+            width={40}
+            height={40}
+            style={{cursor:"pointer"}}
+          />
+          <Image 
+            src='/images/logo/free-icon-github-logo-25231.png' 
+            alt=''
+            width={40}
+            height={40}
+            style={{cursor:"pointer"}}
+          />
+          <Image 
+            src='/images/logo/facebook.png' 
+            alt=''
+            width={40}
+            height={40}
+            style={{cursor:"pointer"}}
+          />
+          <Image 
+            src='/images/logo/apple.png' 
+            alt=''
+            width={40}
+            height={40}
+            style={{cursor:"pointer"}}
+          />
+        </SnsContainer>
+        <JoinText onClick={typeChange}>
+          {newAccount ? "이미 29CM 회원이신가요?" : "아직 29CM 회원이 아니신가요?"}
+        </JoinText>
+        {/* <JoinButton>회원가입</JoinButton> */}
+      </Container>
+    </>
   )
 }
 
 const Container = styled.div`
+  margin-top: -130px;
   width: 100vw;
   min-height: 100vh;
   height: auto;
@@ -122,10 +127,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  ${media.mobile}{
-    justify-content: flex-start;
-    min-height: 0;
-  }
 `;
 const Title = styled.h2`
   margin-top: 30px;
