@@ -120,7 +120,7 @@ const SnsText = styled.p`
   letter-spacing: -.4px;
 `
 const SnsContainer = styled.div`
-  padding-top: 40px;
+  padding-top: 26px;
   font-size: 2rem;
   display: flex;
   justify-content: space-around;
@@ -129,7 +129,7 @@ const SnsContainer = styled.div`
 const JoinText = styled.p`
   font-size: 1.5rem;
   font-family: 'NEXON Lv2 Gothic';
-  margin-top: 72px;
+  margin-top: 42px;
   letter-spacing: -.4px;
   ${media.mobile}{
     font-size: 1.7rem;
