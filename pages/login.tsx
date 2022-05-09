@@ -2,21 +2,78 @@ import type { NextPage } from "next";
 import styled from "styled-components";
 import Image from "next/image";
 import { media } from "../styles/theme";
+import { useState } from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { authService } from "../firebase/firebaseConfig";
+import { useRouter } from "next/router";
 
 const Login: NextPage = () => {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [newAccount, setNewAccount] = useState(false);
+  const onChange = (event) => {
+    const {
+      target: { name, value },
+    } = event;
+    if(name === "email"){
+      setEmail(value);
+    } else if (name === "password"){
+      setPassword(value);
+    }
+  }
+  const typeChange = () => {
+    if(newAccount){
+      setNewAccount(false);
+    } else {
+      setNewAccount(true);
+    }
+  }
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      let data;
+      if(newAccount){
+        data = await createUserWithEmailAndPassword(
+          authService,
+          email,
+          password
+        );
+      } else {
+        data = await signInWithEmailAndPassword(
+          authService, 
+          email, 
+          password
+        );
+      }
+      return router.replace("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <Container>
-      <Title>로그인</Title>
-      <InputContainer>
+      <Title>{newAccount ? "회원가입" : "로그인"}</Title>
+      <InputContainer onSubmit={onSubmit}>
         <Input
+          name="email"
           type="text"
           placeholder="아이디(이메일)"
+          required
+          value={email}
+          onChange={onChange}
         />
         <Input
+          name="password"
           type="password"
           placeholder="비밀번호"
+          required
+          value={password}
+          onChange={onChange}
         />
-        <InputButton>로그인하기</InputButton>
+        <InputButton
+          type="submit"
+        >{newAccount ? "회원가입하기" : "로그인하기"}</InputButton>
       </InputContainer>
       <SnsText>SNS 계정으로 로그인하기</SnsText>
       <SnsContainer>
@@ -49,8 +106,10 @@ const Login: NextPage = () => {
           style={{cursor:"pointer"}}
         />
       </SnsContainer>
-      <JoinText>아직 29CM 회원이 아니신가요?</JoinText>
-      <JoinButton>회원가입</JoinButton>
+      <JoinText onClick={typeChange}>
+        {newAccount ? "이미 29CM 회원이신가요?" : "아직 29CM 회원이 아니신가요?"}
+      </JoinText>
+      {/* <JoinButton>회원가입</JoinButton> */}
     </Container>
   )
 }
@@ -69,10 +128,14 @@ const Container = styled.div`
   }
 `;
 const Title = styled.h2`
+  margin-top: 30px;
   font-size: 4rem;
   font-family: 'GmarketSansMedium';
+  ${media.tablet}{
+    margin-top: -100px;
+  }
   ${media.mobile}{
-    margin-top: 22px;
+    margin-top: 40px;
   }
 `;
 const InputContainer = styled.form`
@@ -134,6 +197,10 @@ const JoinText = styled.p`
   ${media.mobile}{
     font-size: 1.7rem;
     margin-top: 40px;
+  }
+  :hover{
+    color: ${props => props.theme.color.pink};
+    cursor: pointer;
   }
 `
 const JoinButton = styled.button`

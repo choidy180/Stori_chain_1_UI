@@ -1,13 +1,18 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faHeart, faShoppingBag, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faHeart, faShoppingBag, faRightToBracket, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from "next/router";
+import React from 'react'
 import Link from "next/link";
 import { media } from "../styles/theme";
+import { authService } from "../firebase/firebaseConfig";
 
 export default function Nav(){
   const router = useRouter(); 
-  console.log(media);
+  const onLogOutClick = () => {
+    authService.signOut();
+    return router.push("/mypage/heart");
+  };
   return(
     <NavContainer>
       <NavBox>
@@ -45,6 +50,10 @@ export default function Nav(){
               </NavText>
             </Link>
           }
+          <NavText onClick={onLogOutClick}>
+            <FontAwesomeIcon icon={faRightFromBracket}/>
+            <span>LOGOUT</span>
+          </NavText>
         </NavBoxRight>
       </NavBox>
       <NavTab>
@@ -68,10 +77,8 @@ export default function Nav(){
 }
 
 const NavContainer = styled.div`
-  position: fixed;
-  z-index: 99999;
   width: calc(100vw - 76px);
-  padding: 34px 38px 10px 38px;
+  padding: 34px 38px 40px 38px;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -173,7 +180,6 @@ const NavSubTab = styled.div`
     padding-left: 0px;
     padding-top: 0px;
   }
-
 `
 const NavTabSubItems = styled.span`
   font-family: 'GmarketSansMedium';
