@@ -22,12 +22,16 @@ export default function Nav(){
           </Link>
         </NavBoxLeft>
         <NavBoxRight>
-          <Link href={"/mypage"}>
-            <NavText>
-              <FontAwesomeIcon icon={faUser}/>
-              <span>MYPAGE</span>
-            </NavText>
-          </Link>
+          {router.pathname === '/mypage' 
+            ? ""
+            : 
+            <Link href={"/mypage"}>
+              <NavText>
+                <FontAwesomeIcon icon={faUser}/>
+                <span>MYPAGE</span>
+              </NavText>
+            </Link>
+          }
           <Link href={"/mypage/heart"}>
             <NavText>
               <FontAwesomeIcon icon={faHeart}/>
@@ -77,8 +81,8 @@ export default function Nav(){
 }
 
 const NavContainer = styled.div`
-  width: calc(100vw - 76px);
-  padding: 34px 38px 40px 38px;
+  width: calc(100vw - 96px);
+  padding: 34px 48px 40px 48px;
   display: flex;
   flex-direction: column;
   background-color: white;
