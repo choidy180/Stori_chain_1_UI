@@ -60,22 +60,25 @@ export default function Nav(){
           </NavText>
         </NavBoxRight>
       </NavBox>
-      <NavTab>
-        <NavItem>
-          <NavTabItems>MEN</NavTabItems>
-          <NavTabItems>WOMEN</NavTabItems>
-          <NavTabItems>HOME</NavTabItems>
-          <NavTabItems>TECH</NavTabItems>
-          <NavTabItems>BEAUTY</NavTabItems>
-          <NavTabItems>LEISURE</NavTabItems>
-          <NavTabItems>CURTURE</NavTabItems>
-        </NavItem>
-        <NavSubTab>
-          <NavTabSubItems>Event</NavTabSubItems>
-          <NavTabSubItems>Brand</NavTabSubItems>
-          <NavTabSubItems>Lookbook</NavTabSubItems>
-        </NavSubTab>
-      </NavTab>
+      {router.pathname === "/login" ? 
+        "" : 
+        <NavTab>
+          <NavItem>
+            <NavTabItems>MEN</NavTabItems>
+            <NavTabItems>WOMEN</NavTabItems>
+            <NavTabItems>HOME</NavTabItems>
+            <NavTabItems>TECH</NavTabItems>
+            <NavTabItems>BEAUTY</NavTabItems>
+            <NavTabItems>LEISURE</NavTabItems>
+            <NavTabItems>CURTURE</NavTabItems>
+          </NavItem>
+          <NavSubTab>
+            <NavTabSubItems>Event</NavTabSubItems>
+            <NavTabSubItems>Brand</NavTabSubItems>
+            <NavTabSubItems>Lookbook</NavTabSubItems>
+          </NavSubTab>
+        </NavTab>
+      }
     </NavContainer>
  ) 
 }
