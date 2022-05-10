@@ -10,9 +10,6 @@ import { useParams } from "react-router-dom";
 
 export default function Nav({isLoggedIn}){
   const router = useRouter(); 
-  const { params } = useParams();
-  console.log(router);
-  console.log(params);
   const onLogOutClick = () => {
     authService.signOut();
     return router.push("/");

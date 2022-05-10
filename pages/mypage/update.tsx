@@ -44,7 +44,6 @@ const MyPageUpdate: NextPage = (props) => {
               />
               <LastContentInput
                 type="text"
-                style={"border-bottom: none"}
                 placeholder="010-0000-0000"
               />
             </Content>
