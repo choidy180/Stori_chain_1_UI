@@ -6,16 +6,20 @@ import React from 'react'
 import Link from "next/link";
 import { media } from "../styles/theme";
 import { authService } from "../firebase/firebaseConfig";
+import { useParams } from "react-router-dom";
 
 export default function Nav({isLoggedIn}){
   const router = useRouter(); 
+  const { params } = useParams();
+  console.log(router);
+  console.log(params);
   const onLogOutClick = () => {
     authService.signOut();
     return router.push("/");
   };
   return(
     <>
-    {router.pathname !== "/mypage" ?
+    {!router.pathname.includes("/mypage") ?
       <NavContainer>
         <NavBox>
           <NavBoxLeft>
