@@ -85,6 +85,9 @@ const Content = styled.div`
     padding: 0;
     margin-top: -1px;
   }
+  ${media.mobile}{
+    min-width: 0px;
+  }
 `;
 const MTop = styled.div`
   display: none;
@@ -96,6 +99,8 @@ const MTop = styled.div`
     background-color: ${props => props.theme.color.dark};
   }
   ${media.mobile}{
+    width: 100vw;
+    padding: 0;
     flex-direction: column;
     align-items: center;
     padding-bottom: 0;
