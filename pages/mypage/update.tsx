@@ -72,6 +72,9 @@ const Box = styled.div`
 `;
 const Title = styled.h1`
   font-size: 2.9rem;
+  ${media.mobile}{
+    font-size: 2.4rem;
+  }
 `;
 const Img = styled.div`
   display: flex;
@@ -83,7 +86,9 @@ const Img = styled.div`
   border: 0px solid ${props => props.theme.color.darkGray2};
   margin-top: 24px;
   overflow: hidden;
-  ${media.xltablet}{
+  ${media.mobile}{
+    width: 180px;
+    height: 180px;
   }
 `;
 const ImgButton = styled.label`
@@ -95,6 +100,10 @@ const ImgButton = styled.label`
   font-family: 'NEXON Lv1 Gothic OTF';
   line-height: 1.5rem;
   border-radius: 6px;
+  ${media.mobile}{
+    font-size: 1.5rem;
+    padding: 12px 18px;
+  }
 `;
 const UploadImageButton = styled.input`
   display: none;
@@ -116,12 +125,20 @@ const HeadBox = styled.div`
   justify-content: center;
   align-items: flex-start;
   border-right: 1px solid rgb(200, 214, 229);
+  ${media.mobile}{
+    width: 130px;
+  }
 `;
 const Head = styled.div`
   width: calc(100% - 50px);
-  padding: 17px 30px 17px 20px;
+  padding: 18px 30px 18px 20px;
   font-family: 'NEXON Lv1 Gothic OTF';
   font-size: 1.7rem;
+  border-top: 1px solid white;
+  margin: 0;
+  ${media.mobile}{
+    padding: 13px 25px 13px 15px;
+  }
 `;
 const Content = styled.div`
   width: calc(100% - 166px);
@@ -130,22 +147,28 @@ const Content = styled.div`
 `;
 const ContentInput = styled.input`
   width: calc(100% - 50px);
-  padding: 15px 30px 15px 20px;
+  padding: 17px 30px 17px 20px;
   font-family: 'NEXON Lv1 Gothic OTF';
   font-size: 1.7rem;
   border: none;
   border-bottom: 1px solid rgb(200, 214, 229);
   outline: none;
-  margin: 0;
+  margin: 0px;
+  ${media.mobile}{
+    padding: 12px 25px 12px 15px;
+  }
 `;
 const LastContentInput = styled.input`
   width: calc(100% - 50px);
-  padding: 15px 30px 15px 20px;
+  padding: 17px 30px 17px 20px;
   font-family: 'NEXON Lv1 Gothic OTF';
   font-size: 1.7rem;
   border: none;
   outline: none;
   margin: 0;
+  ${media.mobile}{
+    padding: 12px 25px 12px 15px;
+  }
 `;
 const Button = styled.button`
   margin-top: 30px;
@@ -160,6 +183,11 @@ const Button = styled.button`
   transition: all .15s ease-in-out;
   :hover{
     background-color: ${props => props.theme.color.darkGray2};
+  }
+  ${media.mobile}{
+    padding: 11px 20px 11px 10px;
+    min-width: 250px;
+    font-size: 1.8rem;
   }
 `;
 export default MyPageUpdate;
