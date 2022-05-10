@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const MyPageUpdate: NextPage = (props) => {
   return (
-    <>
+    <Container>
       <Nav isLoggedIn={props}/>
         <Box>
           <Title>개인정보 수정</Title>
@@ -50,7 +50,7 @@ const MyPageUpdate: NextPage = (props) => {
           </ContentBox>
           <Button>정보수정하기</Button>
         </Box>
-    </>
+    </Container>
   )
 };
 
