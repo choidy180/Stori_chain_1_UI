@@ -56,6 +56,7 @@ const MyPageUpdate: NextPage = (props) => {
 
 const Container = styled.div`
   width: 100vw;
+  max-width: 100vw;
   height: auto;
   max-height: 100vh;
   display: flex;
