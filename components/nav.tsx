@@ -7,78 +7,111 @@ import Link from "next/link";
 import { media } from "../styles/theme";
 import { authService } from "../firebase/firebaseConfig";
 
-export default function Nav(data){
+export default function Nav({isLoggedIn}){
   const router = useRouter(); 
   const onLogOutClick = () => {
     authService.signOut();
     return router.push("/");
   };
   return(
-    <NavContainer>
-      <NavBox>
-        <NavBoxLeft>
-          <Link href={"/"}>
-            <LogoText>29CM</LogoText>
-          </Link>
-        </NavBoxLeft>
-        <NavBoxRight>
-          {router.pathname === '/mypage' 
-            ? ""
-            : 
-            <Link href={"/mypage"}>
+    <>
+    {router.pathname !== "/mypage" ?
+      <NavContainer>
+        <NavBox>
+          <NavBoxLeft>
+            <Link href={"/"}>
+              <LogoText>29CM</LogoText>
+            </Link>
+          </NavBoxLeft>
+          <NavBoxRight>
+            {router.pathname === '/mypage' 
+              ? ""
+              : 
+              <Link href={"/mypage"}>
+                <NavText>
+                  <FontAwesomeIcon icon={faUser}/>
+                  <span>MYPAGE</span>
+                </NavText>
+              </Link>
+            }
+            <Link href={"/mypage/heart"}>
               <NavText>
-                <FontAwesomeIcon icon={faUser}/>
-                <span>MYPAGE</span>
+                <FontAwesomeIcon icon={faHeart}/>
+                <span>HEART</span>
               </NavText>
+            </Link>
+            <Link href={"/order/cart"}>
+              <NavText>
+                <FontAwesomeIcon icon={faShoppingBag}/>
+                <span>SHOPPING</span>
+              </NavText>
+            </Link>
+            {isLoggedIn["isLoggedIn"] ? 
+              <NavText onClick={onLogOutClick}>
+                <FontAwesomeIcon icon={faRightFromBracket}/>
+                <span>LOGOUT</span>
+              </NavText> : 
+              <Link href={"/login"}>
+                <NavText>
+                  <FontAwesomeIcon icon={faRightToBracket}/>
+                  <span>LOGIN</span>
+                </NavText>
+              </Link>
+            }
+          </NavBoxRight>
+        </NavBox>
+        {router.pathname === "/login" ? 
+          "" : 
+          <NavTab>
+            <NavItem>
+              <NavTabItems>MEN</NavTabItems>
+              <NavTabItems>WOMEN</NavTabItems>
+              <NavTabItems>HOME</NavTabItems>
+              <NavTabItems>TECH</NavTabItems>
+              <NavTabItems>BEAUTY</NavTabItems>
+              <NavTabItems>LEISURE</NavTabItems>
+              <NavTabItems>CURTURE</NavTabItems>
+            </NavItem>
+            <NavSubTab>
+              <NavTabSubItems>Event</NavTabSubItems>
+              <NavTabSubItems>Brand</NavTabSubItems>
+              <NavTabSubItems>Lookbook</NavTabSubItems>
+            </NavSubTab>
+          </NavTab>
+        }
+      </NavContainer> : 
+      <MoblieContiner>
+        <MLeft>
+          <Link href={"/"}>
+            <MTitle>29CM</MTitle>
+          </Link>
+        </MLeft>
+        <MRight>
+          {isLoggedIn["isLoggedIn"] ? 
+            <MNavText onClick={onLogOutClick}>
+              <span>LOGOUT</span>
+            </MNavText> : 
+            <Link href={"/login"}>
+              <MNavText>
+                <span>LOGIN</span>
+              </MNavText>
             </Link>
           }
           <Link href={"/mypage/heart"}>
-            <NavText>
-              <FontAwesomeIcon icon={faHeart}/>
-              <span>HEART</span>
-            </NavText>
-          </Link>
-          <Link href={"/order/cart"}>
-            <NavText>
-              <FontAwesomeIcon icon={faShoppingBag}/>
-              <span>SHOPPING</span>
-            </NavText>
-          </Link>
-          {data?.isLoggedIn.isLoggedIn ? 
-            <NavText onClick={onLogOutClick}>
-              <FontAwesomeIcon icon={faRightFromBracket}/>
-              <span>LOGOUT</span>
-            </NavText> : 
-            <Link href={"/login"}>
-              <NavText>
-                <FontAwesomeIcon icon={faRightToBracket}/>
-                <span>LOGIN</span>
-              </NavText>
+              <MNavText>
+                <span>HEART</span>
+              </MNavText>
             </Link>
-          }
-        </NavBoxRight>
-      </NavBox>
-      {router.pathname === "/login" ? 
-        "" : 
-        <NavTab>
-          <NavItem>
-            <NavTabItems>MEN</NavTabItems>
-            <NavTabItems>WOMEN</NavTabItems>
-            <NavTabItems>HOME</NavTabItems>
-            <NavTabItems>TECH</NavTabItems>
-            <NavTabItems>BEAUTY</NavTabItems>
-            <NavTabItems>LEISURE</NavTabItems>
-            <NavTabItems>CURTURE</NavTabItems>
-          </NavItem>
-          <NavSubTab>
-            <NavTabSubItems>Event</NavTabSubItems>
-            <NavTabSubItems>Brand</NavTabSubItems>
-            <NavTabSubItems>Lookbook</NavTabSubItems>
-          </NavSubTab>
-        </NavTab>
+            <Link href={"/order/cart"}>
+              <MNavText>
+                <span>SHOPPING</span>
+              </MNavText>
+            </Link>
+        </MRight>
+      </MoblieContiner>
       }
-    </NavContainer>
- ) 
+    </>
+  ) 
 }
 
 const NavContainer = styled.div`
@@ -89,7 +122,7 @@ const NavContainer = styled.div`
   background-color: white;
   ${media.tablet}{
     width: calc(100vw - 50px);
-    padding: 34px 25px 40px 25px;
+    padding: 20px 25px 20px 25px;
   }
 `;
 
@@ -150,9 +183,7 @@ const NavTab = styled.div`
   justify-content: flex-start;
   gap: 20px;
   ${media.tablet}{
-    flex-direction: column;
-    padding-top: 0px;
-    gap: 10px;
+    display: none;
   }
 `
 const NavItem = styled.div`
@@ -189,4 +220,32 @@ const NavSubTab = styled.div`
 const NavTabSubItems = styled.span`
   font-family: 'GmarketSansMedium';
   font-size: 1rem;
+`
+// 모바일
+const MoblieContiner = styled.div`
+  padding: 20px;
+  background-color: ${props => props.theme.color.dark};
+  display: flex;
+  justify-content: space-between;
+`
+const MLeft = styled.div`
+  color: white;
+`
+const MTitle = styled.p`
+  font-size: 2rem;
+  cursor: pointer;
+`
+const MRight = styled.div`
+  color: white;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+`
+const MNavText = styled.p`
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  span{
+    cursor: pointer;
+  }
 `

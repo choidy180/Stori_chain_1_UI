@@ -10,7 +10,8 @@ export const theme: DefaultTheme = {
     lightGreen: "#99ecdd",
     darkGreen: "#356356",
     darkGray: "#54595d",
-    darkGray2: "#312F30"
+    darkGray2: "#312F30",
+    dark: "#141414",
   },
   boxShadow: {
     normal: "0 3px 8px 0 rgb(0 0 0 / 10%)",

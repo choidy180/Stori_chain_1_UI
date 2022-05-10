@@ -33,7 +33,7 @@ export default function MyPageTab(){
         <Link href={"/"}>
           <TabTitle>나의 계정설정</TabTitle>
         </Link>
-        <Link href={"/"}>
+        <Link href={"/mypage/update"}>
           <TabSub>회원정보수정</TabSub>
         </Link>
         <Link href={"/"}>
@@ -74,7 +74,10 @@ const Tab = styled.div`
   ${media.xltablet}{
     width: auto;
     min-width: auto;
-    margin-right: 60px;
+    margin-right: 30px;
+  }
+  ${media.tablet}{
+    display: none;
   }
 `
 const Img = styled.div`
