@@ -62,6 +62,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
 `;
 const Box = styled.div`
   width: 100%;
