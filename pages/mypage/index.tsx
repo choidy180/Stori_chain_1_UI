@@ -2,11 +2,13 @@ import type { NextPage } from "next";
 import styled from "styled-components";
 import MyPageTab from "../../components/mypage/tab";
 import Nav from "../../components/nav";
+import { media } from "../../styles/theme";
 
-const MyPage: NextPage = () => {
+const MyPage: NextPage = (props) => {
+  console.log(props);
   return (
     <>
-      <Nav/>
+      <Nav isLoggedIn={props}/>
       <Container>
         <Box>
           <MyPageTab/>
@@ -62,6 +64,10 @@ const Top = styled.div`
   background-color: ${props => props.theme.color.darkGray2};
   color: white;
   display: flex;
+  ${media.xltablet}{
+    padding: 20px;
+    width: calc(100% - 40px);
+  }
 `;
 const TopLeft = styled.div`
   width: 100%;
@@ -89,6 +95,10 @@ const TopText = styled.p`
   color: white;
   font-size: 3.6rem;
   line-height: 3.4rem;
+  ${media.xltablet}{
+    font-size: 2.7rem;
+    line-height: 2.8rem;
+  }
 `;
 const TopNumber = styled.span`
   font-family: 'GmarketSansMedium';
@@ -98,6 +108,10 @@ const TopNumber = styled.span`
   transition: all .1s ease-in-out;
   :hover{
     color: ${props => props.theme.color.lightGreen};
+  }
+  ${media.xltablet}{
+    font-size: 2.7rem;
+    line-height: 2.8rem;
   }
 `;
 export default MyPage;

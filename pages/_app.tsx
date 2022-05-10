@@ -15,8 +15,11 @@ function MyApp({ Component, pageProps }) {
       if(user) {
         setIsLoggedIn(true);
         setUserObj(user);
+        return;
       } else {
         setIsLoggedIn(false);
+        setUserObj(null);
+        return;
       }
     });
   }, []);
@@ -28,7 +31,10 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <GlobalStyle/>
       <ThemeProvider theme={theme}>
-        <Component {...pageProps}/>
+        <Component {...pageProps} 
+          isLoggedIn={isLoggedIn} 
+          userObj={userObj}
+        />
       </ThemeProvider>
     </>
   )

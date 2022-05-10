@@ -2,17 +2,21 @@ import type { NextPage } from "next";
 import styled from "styled-components";
 import Image from "next/image";
 import { media } from "../styles/theme";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { authService } from "../firebase/firebaseConfig";
 import { useRouter } from "next/router";
 import Nav from "../components/nav";
 
-const Login: NextPage = () => {
+const Login: NextPage = (props) => {
+  console.log("Login: ",props);
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newAccount, setNewAccount] = useState(false);
+  useEffect(()=>{
+    authService.signOut();
+  },[]);
   const onChange = (event) => {
     const {
       target: { name, value },
@@ -54,7 +58,7 @@ const Login: NextPage = () => {
   }
   return (
     <>
-      <Nav/>
+      <Nav isLoggedIn={props}/>
       <Container>
         <Title>{newAccount ? "회원가입" : "로그인"}</Title>
         <InputContainer onSubmit={onSubmit}>

@@ -7,11 +7,11 @@ import Link from "next/link";
 import { media } from "../styles/theme";
 import { authService } from "../firebase/firebaseConfig";
 
-export default function Nav(){
+export default function Nav(data){
   const router = useRouter(); 
   const onLogOutClick = () => {
     authService.signOut();
-    return router.push("/mypage/heart");
+    return router.push("/");
   };
   return(
     <NavContainer>
@@ -44,9 +44,11 @@ export default function Nav(){
               <span>SHOPPING</span>
             </NavText>
           </Link>
-          {router.pathname === '/login' 
-            ? ""
-            : 
+          {data?.isLoggedIn.isLoggedIn ? 
+            <NavText onClick={onLogOutClick}>
+              <FontAwesomeIcon icon={faRightFromBracket}/>
+              <span>LOGOUT</span>
+            </NavText> : 
             <Link href={"/login"}>
               <NavText>
                 <FontAwesomeIcon icon={faRightToBracket}/>
@@ -54,10 +56,6 @@ export default function Nav(){
               </NavText>
             </Link>
           }
-          <NavText onClick={onLogOutClick}>
-            <FontAwesomeIcon icon={faRightFromBracket}/>
-            <span>LOGOUT</span>
-          </NavText>
         </NavBoxRight>
       </NavBox>
       {router.pathname === "/login" ? 

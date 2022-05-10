@@ -4,10 +4,10 @@ import Image from "next/image";
 import { media } from "../styles/theme";
 import Nav from "../components/nav";
 
-const Home: NextPage = () => {
+const Home: NextPage = (props) => {
   return (
     <>
-      <Nav/>
+      <Nav isLoggedIn={props}/>
       <Container>
         <Left>
           <Image 

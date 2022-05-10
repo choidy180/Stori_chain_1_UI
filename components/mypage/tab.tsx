@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
+import { media } from "../../styles/theme";
 
 export default function MyPageTab(){
   return(
@@ -70,6 +71,11 @@ const Tab = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  ${media.xltablet}{
+    width: auto;
+    min-width: auto;
+    margin-right: 60px;
+  }
 `
 const Img = styled.div`
   display: flex;
@@ -80,6 +86,10 @@ const Img = styled.div`
   border-radius: 50%;
   border: 0px solid ${props => props.theme.color.darkGray2};
   overflow: hidden;
+  ${media.xltablet}{
+    width: 200px;
+    height: 200px;
+  }
 `
 const ContentBox = styled.div`
   width: 100%;
@@ -91,7 +101,7 @@ const ContentBox = styled.div`
 `
 const Name = styled.span`
   font-family: 'NEXON Lv1 Gothic OTF Bold';
-  font-size: 4rem;
+  font-size: 3rem;
 `
 const TabBox = styled.div`
   width: 100%;
@@ -103,7 +113,7 @@ const TabBox = styled.div`
 const TabTitle = styled.p`
   margin-top: 45px;
   font-family: 'NEXON Lv1 Gothic OTF Bold';
-  font-size: 2rem;
+  font-size: 1.7rem;
   transition: all 0.1s ease-in-out;
   cursor: pointer;
   :hover{
@@ -111,9 +121,9 @@ const TabTitle = styled.p`
   }
 `
 const TabSub = styled.p`
-  margin-top: 24px;
+  margin-top: 18px;
   font-family: 'NEXON Lv1 Gothic OTF';
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   transition: all 0.1s ease-in-out;
   color: ${props => props.theme.color.darkGray};
   cursor: pointer;
