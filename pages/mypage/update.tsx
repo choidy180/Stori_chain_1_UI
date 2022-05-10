@@ -117,6 +117,9 @@ const ContentBox = styled.div`
   border-top: 1px solid rgb(200, 214, 229);
   border-bottom: 1px solid rgb(200, 214, 229);
   margin-top: 20px;
+  ${media.mobile}{
+    max-width: none;
+  }
 `;
 const HeadBox = styled.div`
   width: 165px;
@@ -137,13 +140,17 @@ const Head = styled.div`
   border-top: 1px solid white;
   margin: 0;
   ${media.mobile}{
-    padding: 13px 25px 13px 15px;
+    width: calc(100% - 40px);
+    padding: 13px 15px 13px 25px;
   }
 `;
 const Content = styled.div`
   width: calc(100% - 166px);
   display: flex;
   flex-direction: column;
+  ${media.mobile}{
+    width: calc(100% - 130px);
+  }
 `;
 const ContentInput = styled.input`
   width: calc(100% - 50px);
@@ -155,6 +162,7 @@ const ContentInput = styled.input`
   outline: none;
   margin: 0px;
   ${media.mobile}{
+    width: 100%;
     padding: 12px 25px 12px 15px;
   }
 `;
