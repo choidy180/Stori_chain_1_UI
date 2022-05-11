@@ -88,8 +88,12 @@ const Box = styled.form`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   ${media.tablet}{
     flex-direction: column;
+  }
+  ${media.mobile}{
+    padding: 0;
   }
 `;
 const ImageBox = styled.label`
