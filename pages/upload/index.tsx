@@ -113,6 +113,9 @@ const ImageBox = styled.label`
     width: 362px;
     height: 300px;
   }
+  ${media.mobile}{
+    width: calc(100% - 80px);
+  }
 `;
 const ImgButton = styled.input`
   display: none;
@@ -147,6 +150,9 @@ const Title = styled.input`
     min-width: calc(360px - 23px);
     font-size: 1.25rem;
   }
+  ${media.mobile}{
+    width: calc(100% - 25px);
+  }
 `;
 const PriceBox = styled.div`
   display: flex;
@@ -173,6 +179,9 @@ const Price = styled.input`
     padding: 9px 10px 9px 13px;
     min-width: calc(360px - 23px);
     font-size: 1.25rem;
+  }
+  ${media.mobile}{
+    width: calc(100%);
   }
 `;
 const Own = styled.p`
@@ -216,6 +225,11 @@ const TextContent = styled.textarea`
     min-height: 164px;
     font-size: 1.25rem;
   }
+  ${media.mobile}{
+    width: calc(100% - 25px);
+    height: auto;
+    min-height: 80px;
+  }
 `;
 const Button = styled.button`
 margin: 0;
@@ -234,7 +248,10 @@ margin: 0;
     margin-top: 12px;
     padding: 9px 10px 9px 10px;
     min-width: 362px;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+  }
+  ${media.mobile}{
+    font-size: 1.4rem;
   }
 `
 
