@@ -4,11 +4,31 @@ import styled from "styled-components";
 import Image from "next/image";
 import { useState } from "react";
 import { media } from "../../styles/theme";
+import { dbService, storageService } from "../../firebase/firebaseConfig";
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import { async } from "@firebase/util";
 
 
 const Upload: NextPage = (props) => {
-  console.log("12345123451234512345");
   const [imageLoad, setImageLoad] = useState();
+  const [title, setTitle] = useState("");
+  const [price, setPrice] = useState("");
+  const [explain, setExplain] = useState("");
+  const [uploadData, setUploadData] = useState();
+  const testContent = getDocs(collection(dbService, "content"));
+  console.log(testContent);
+  const onChangeValue = (event) => {
+    const {
+      target: { name, value },
+    } = event;
+    if(name === "title"){
+      setTitle(value);
+    } else if (name === "price"){
+      setPrice(value);
+    } else if (name === "explane"){
+      setExplain(value);
+    }
+  }
   const onFileChange = (event) => {
     const {
       target: { files },
@@ -20,11 +40,20 @@ const Upload: NextPage = (props) => {
     }
     reader.readAsDataURL(files[0]);
   }
+  const onSubmit =  async (event) => {
+    event.preventDefault();
+    const dataBase = collection(dbService, "Content");
+    await addDoc(dataBase, {
+      Image: title,
+      UploadDate: Date.now(),
+    });
+    setTitle("");
+  }
   return(
     <>
       <Container>
         <Nav isLoggedIn={props}/>
-        <Box>
+        <Box onSubmit={onSubmit}>
           <ImageBox
             htmlfor="inputImage"
           >
@@ -47,19 +76,28 @@ const Upload: NextPage = (props) => {
             <Title
               type="text"
               placeholder="이름을 입력하세요"
+              name="title"
+              value={title}
+              onChange={onChangeValue}
             />
             <PriceBox>
               <Price
                 type="text"
                 placeholder="가격을 입력하세요"
-                maxLength="999"
+                name="price"
+                maxLength="14"
+                value={price}
+                onChange={onChangeValue}
               />
               <Own>원</Own>
             </PriceBox>
             <TextContent
               placeholder="추가설명을 입력하세요"
+              name="explane"
+              value={explain}
+              onChange={onChangeValue}
             />
-            <Button>물건 등록하기</Button>
+            <Button type="submit">물건 등록하기</Button>
           </ContentBox>
         </Box>
       </Container>
