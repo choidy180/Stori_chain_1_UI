@@ -6,7 +6,6 @@ import { useState } from "react";
 import { media } from "../../styles/theme";
 import { dbService, storageService } from "../../firebase/firebaseConfig";
 import { addDoc, collection, getDocs } from "firebase/firestore";
-import { async } from "@firebase/util";
 
 
 const Upload: NextPage = (props) => {
@@ -16,7 +15,6 @@ const Upload: NextPage = (props) => {
   const [explain, setExplain] = useState("");
   const [uploadData, setUploadData] = useState();
   const testContent = getDocs(collection(dbService, "content"));
-  console.log(testContent);
   const onChangeValue = (event) => {
     const {
       target: { name, value },
@@ -44,10 +42,16 @@ const Upload: NextPage = (props) => {
     event.preventDefault();
     const dataBase = collection(dbService, "Content");
     await addDoc(dataBase, {
-      Image: title,
-      UploadDate: Date.now(),
+      email: props["userObj"]["email"],
+      title: title,
+      price: price,
+      explain: explain,
+      uploadDate: Date.now(),
     });
     setTitle("");
+    setPrice("");
+    setExplain("");
+    alert("등록완료 되었습니다.");
   }
   return(
     <>
@@ -59,6 +63,7 @@ const Upload: NextPage = (props) => {
           >
             <Image 
               id="exam_img"
+              alt="image"
               src={
                 imageLoad ? imageLoad : "/images/main/8a0b876907e14030aad6eb00716a05b6_20220504165423.jpg"
               }
@@ -82,7 +87,7 @@ const Upload: NextPage = (props) => {
             />
             <PriceBox>
               <Price
-                type="text"
+                type="number"
                 placeholder="가격을 입력하세요"
                 name="price"
                 maxLength="14"
