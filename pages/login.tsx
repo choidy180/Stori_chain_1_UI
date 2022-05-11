@@ -10,7 +10,6 @@ import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Nav from "../components/nav";
 
 const Login: NextPage = (props) => {
-  console.log("Login: ",props);
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

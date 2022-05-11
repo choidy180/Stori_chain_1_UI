@@ -4,8 +4,17 @@ import styled from "styled-components";
 import MyPageTab from "../../components/mypage/tab";
 import Nav from "../../components/nav";
 import { media } from "../../styles/theme";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const MyPage: NextPage = (props) => {
+  const router = useRouter();
+  useEffect(()=>{
+    if(!props["isLoggedIn"]){
+      alert("로그인 후 이용할 수 있습니다.");
+      router.replace("/login");
+    }
+  })
   return (
     <>
       <Nav isLoggedIn={props}/>
