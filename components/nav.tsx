@@ -116,6 +116,8 @@ export default function Nav({isLoggedIn}){
 }
 
 const NavContainer = styled.div`
+  position: absolute;
+  z-index: 9999999;
   width: calc(100vw - 96px);
   padding: 34px 48px 40px 48px;
   display: flex;

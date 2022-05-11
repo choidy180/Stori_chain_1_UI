@@ -121,4 +121,9 @@ export const GlobalStyle = createGlobalStyle`
             display: block;
         }
     }
+    .imageItem{
+        width: 100%;
+        height: 100%;
+        position: relative !important;
+    }
 `;
