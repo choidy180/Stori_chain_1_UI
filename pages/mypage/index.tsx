@@ -25,7 +25,7 @@ const MyPage: NextPage = (props) => {
                 </Img>
               </MImage>
               <MTTitle>
-                <MTTitleText>크리스탈 님</MTTitleText>
+                <MTTitleText>크리스탈</MTTitleText>
                 <MTGrade>VIP<MTGradeSub>(회원등급)</MTGradeSub></MTGrade>
                 <MTGradeText>VVIP까지 198,000원 남았습니다.</MTGradeText>
               </MTTitle>

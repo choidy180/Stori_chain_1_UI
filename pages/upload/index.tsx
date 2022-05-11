@@ -7,22 +7,18 @@ import { media } from "../../styles/theme";
 
 
 const Upload: NextPage = (props) => {
+  console.log("12345123451234512345");
   const [imageLoad, setImageLoad] = useState();
-  const onFileChange = (e) => {
+  const onFileChange = (event) => {
     const {
       target: { files },
-    } = e;
-    const theFile = files[0];
+    } = event;
     const reader = new FileReader();
-    // 완료후 finishedEvent 받기
+    // 완료되면 finidhedEvent를 받는다.
     reader.onloadend = (finishedEvent) => {
-      const {
-        currentTarget : { result },
-      } = finishedEvent;
-      setImageLoad(result)
+      setImageLoad(finishedEvent.currentTarget["result"]);
     }
-    // 여기서 파일읽기 시작
-    reader.readAsDataURL(theFile);
+    reader.readAsDataURL(files[0]);
   }
   return(
     <>
@@ -105,16 +101,18 @@ const ImageBox = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   ${media.xltablet}{
     width: 300px;
     height: 337.5px;
   }
   ${media.tablet}{
+    max-width: 362px;
     width: 362px;
     height: 300px;
   }
   ${media.mobile}{
-    width: calc(100% - 80px);
+    width: calc(100% - 30px);
   }
 `;
 const ImgButton = styled.input`
