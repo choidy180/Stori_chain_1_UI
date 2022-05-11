@@ -3,9 +3,10 @@ import styled from "styled-components";
 import Image from "next/image";
 import { media } from "../styles/theme";
 import { useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, GithubAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import { authService } from "../firebase/firebaseConfig";
 import { useRouter } from "next/router";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Nav from "../components/nav";
 
 const Login: NextPage = (props) => {
@@ -55,6 +56,20 @@ const Login: NextPage = (props) => {
     } catch (error) {
       console.log(error);
     }
+  };
+  const onSocialClick = async (event) => {
+    const {
+      target: { id },
+    } = event;
+    let provider;
+    if (id === "google"){
+      provider = new GoogleAuthProvider();
+    }
+    if (id === "github"){
+      provider = new GithubAuthProvider();
+    }
+    const data = await signInWithPopup(authService, provider);
+    return router.replace("/");
   }
   return (
     <>
@@ -87,30 +102,38 @@ const Login: NextPage = (props) => {
           <Image 
             src='/images/logo/google-brand-black-google-logo-vector-number-symbol-text-trademark-transparent-png-144049.png' 
             alt=''
+            id="google"
             width={40}
             height={40}
             style={{cursor:"pointer"}}
+            onClick={onSocialClick}
           />
           <Image 
             src='/images/logo/free-icon-github-logo-25231.png' 
             alt=''
+            id="github"
             width={40}
             height={40}
             style={{cursor:"pointer"}}
+            onClick={onSocialClick}
           />
           <Image 
             src='/images/logo/facebook.png' 
             alt=''
+            id="facebook"
             width={40}
             height={40}
             style={{cursor:"pointer"}}
+            onClick={onSocialClick}
           />
           <Image 
             src='/images/logo/apple.png' 
             alt=''
+            id="apple"
             width={40}
             height={40}
             style={{cursor:"pointer"}}
+            onClick={onSocialClick}
           />
         </SnsContainer>
         <JoinText onClick={typeChange}>
@@ -123,7 +146,8 @@ const Login: NextPage = (props) => {
 }
 
 const Container = styled.div`
-  margin-top: -130px;
+  position: absolute;
+  margin-top: -100px;
   width: 100vw;
   min-height: 100vh;
   height: auto;

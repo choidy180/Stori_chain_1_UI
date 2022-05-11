@@ -3,8 +3,17 @@ import Nav from "../../components/nav";
 import styled from "styled-components";
 import { media } from "../../styles/theme";
 import Image from "next/image";
+import { useEffect } from "react";
+import { dbService } from "../../firebase/firebaseConfig";
 
 const MyPageUpdate: NextPage = (props) => {
+  const getMyInfo = async () => {
+    await console.log(props["userObj"]);
+    // const userInfo = await dbService.colle
+  };
+  useEffect(() => {
+    getMyInfo();
+  },[]);
   return (
     <Container>
       <Nav isLoggedIn={props}/>
