@@ -6,9 +6,13 @@ import { useState } from "react";
 import { media } from "../../styles/theme";
 import { dbService, storageService } from "../../firebase/firebaseConfig";
 import { addDoc, collection, getDocs } from "firebase/firestore";
+import { ref, uploadString } from "@firebase/storage";
+import { useRouter } from "next/router";
+import { v4 as uuidv4 } from "uuid";
 
 
 const Upload: NextPage = (props) => {
+  const router = useRouter();
   const [imageLoad, setImageLoad] = useState();
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
@@ -40,18 +44,21 @@ const Upload: NextPage = (props) => {
   }
   const onSubmit =  async (event) => {
     event.preventDefault();
-    const dataBase = collection(dbService, "Content");
-    await addDoc(dataBase, {
-      email: props["userObj"]["email"],
-      title: title,
-      price: price,
-      explain: explain,
-      uploadDate: Date.now(),
-    });
-    setTitle("");
-    setPrice("");
-    setExplain("");
-    alert("등록완료 되었습니다.");
+    // const fileRef = ref(storageService, `${props["isLoggedIn"]["uid"]}/${uuidv4()}`);
+    // const response = await uploadString(fileRef, imageLoad, "data_url");
+    // console.log(response);
+    // const dataBase = collection(dbService, "Content");
+    // await addDoc(dataBase, {
+    //   email: props["userObj"]["email"],
+    //   title: title,
+    //   price: price,
+    //   explain: explain,
+    //   uploadDate: Date.now(),
+    // });
+    // setTitle("");
+    // setPrice("");
+    // setExplain("");
+    // alert("등록완료 되었습니다.");
   }
   return(
     <>
