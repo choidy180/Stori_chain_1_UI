@@ -44,9 +44,9 @@ const Upload: NextPage = (props) => {
   }
   const onSubmit =  async (event) => {
     event.preventDefault();
-    // const fileRef = ref(storageService, `${props["isLoggedIn"]["uid"]}/${uuidv4()}`);
-    // const response = await uploadString(fileRef, imageLoad, "data_url");
-    // console.log(response);
+    const fileRef = ref(storageService, `${props["isLoggedIn"]["uid"]}/${uuidv4()}`);
+    const response = await uploadString(fileRef, imageLoad, "data_url");
+    console.log(response);
     // const dataBase = collection(dbService, "Content");
     // await addDoc(dataBase, {
     //   email: props["userObj"]["email"],
