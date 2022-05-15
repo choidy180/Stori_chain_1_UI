@@ -3,26 +3,8 @@ import Head from 'next/head';
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../styles/global-style";
 import { theme } from '../styles/theme';
-import { useEffect, useState } from 'react';
-import { app, authService } from "../firebase/firebaseConfig";
 
 function MyApp({ Component, pageProps }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userObj, setUserObj] = useState(null);
-  // Components mount timing
-  useEffect(() => {
-    authService.onAuthStateChanged((user) => {
-      if(user) {
-        setIsLoggedIn(true);
-        setUserObj(user);
-        return;
-      } else {
-        setIsLoggedIn(false);
-        setUserObj(null);
-        return;
-      }
-    });
-  }, []);
   return (
     <>
       <Head>
@@ -31,10 +13,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <GlobalStyle/>
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} 
-          isLoggedIn={isLoggedIn} 
-          userObj={userObj}
-        />
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   )

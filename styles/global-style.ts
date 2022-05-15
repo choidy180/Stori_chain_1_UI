@@ -73,10 +73,33 @@ export const GlobalStyle = createGlobalStyle`
         }
         -ms-overflow-style: none;
         scrollbar-width: none;
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
     }
     body{
         margin: 0px;
         padding: 0px;
+        width: 100%;
+        max-width: 1400px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    body #__next{
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow: hidden;
     }
     button {
         background: none;

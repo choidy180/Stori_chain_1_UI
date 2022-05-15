@@ -2,6 +2,7 @@ import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
   color: {
+    red: "#ED414E",
     pink: "#FE0359",
     purple: "#8661de",
     blue: "#00bac7",
@@ -11,7 +12,11 @@ export const theme: DefaultTheme = {
     darkGreen: "#356356",
     darkGray: "#54595d",
     darkGray2: "#312F30",
+    borderGray: "#202023",
     dark: "#141414",
+    coral: "#FF6F61",
+    navColor: "#33383f"
+
   },
   boxShadow: {
     normal: "0 3px 8px 0 rgb(0 0 0 / 10%)",
