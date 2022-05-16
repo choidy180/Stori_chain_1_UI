@@ -85,7 +85,6 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0px;
         padding: 0px;
         width: 100%;
-        max-width: 1400px;
         width: 100%;
         display: flex;
         flex-direction: column;

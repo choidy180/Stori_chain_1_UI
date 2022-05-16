@@ -23,7 +23,7 @@ export default function Nav(){
   const searchRef = useRef(null);
   useOutsideAlerter(searchRef);
   return(
-    <>
+    <NavBox>
       <Container>
         <Left>
           <GridOutline
@@ -59,16 +59,37 @@ export default function Nav(){
           />
         </Right>
       </Container>
-    </>
+      <MainTag>
+          <MainTagContent>전체</MainTagContent>
+          <MainTagContent>추천</MainTagContent>
+          <MainTagContentSelect>새로운스토리</MainTagContentSelect>
+          <MainTagContent>단일스토리</MainTagContent>
+          <MainTagContent>시리즈</MainTagContent>
+          <MainTagContent>평점순</MainTagContent>
+          <MainTagContent>껴든톡</MainTagContent>
+          <MainTagContent>급성장</MainTagContent>
+          <MainTagContent>로맨스</MainTagContent>
+          <MainTagContent>드라마</MainTagContent>
+          <MainTagContent>판타지</MainTagContent>
+          <MainTagContent>리메이크</MainTagContent>
+          <MainTagContent>정주행</MainTagContent>
+        </MainTag>
+    </NavBox>
   ) 
 }
-
+const NavBox = styled.div`
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${props => props.theme.color.dark};
+`
 const Container = styled.div`
+  max-width: 1400px;
   width: calc(100% - 40px);
   padding: 20px 20px 12px 20px;
   display: flex;
   align-items: center;
-  background-color: ${props => props.theme.color.dark};
 `
 const Left = styled.div`
   width: 100%;
@@ -109,4 +130,29 @@ const SearchInput= styled.input`
     color: white;
   }
 `
-
+const MainTag = styled.div`
+  max-width: 1400px;
+  width: 100%;
+  padding: 4px 20px 0px 12px;
+  display: flex;
+  justify-content: space-between;
+  background-color: ${props => props.theme.color.dark};
+`
+const MainTagContent = styled.p`
+  padding: 6px 11px 20px 11px;
+  color: white;
+  font-family: 'NEXON Lv1 Gothic OTF';
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+  :hover{
+    color: ${props => props.theme.color.coral};
+  }
+`
+const MainTagContentSelect = styled.p`
+  padding: 6px 11px;
+  color: ${props => props.theme.color.coral};
+  font-family: 'NEXON Lv1 Gothic OTF';
+  font-size: 1.6rem;
+  border-bottom: 4px solid ${props => props.theme.color.coral};
+`
